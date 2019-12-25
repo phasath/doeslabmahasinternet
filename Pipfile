@@ -10,6 +10,7 @@ aiohttp-devtools = "*"
 aiohttp = {extras = ["speedups"],version = "*"}
 gunicorn = "*"
 python-decouple = "*"
+aiohttp-jinja2 = "*"
 
 [requires]
 python_version = "3.8"

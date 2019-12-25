@@ -1,7 +1,11 @@
-import json
+from json import dumps as json_dumps
 
-from aiohttp import web
+from aiohttp.web import Response
+from aiohttp_jinja2 import template
 
+@template('checker.html')
 async def home(request):
-    response_obj = { 'status' : 'success', 'location': 'checker' }
-    return web.Response(text=json.dumps(response_obj))
+    return None
+
+async def check(request):
+    return Response(text=json_dumps({'status': 'fail'}))
