@@ -79,7 +79,7 @@ $(document).ready(async function() {
 	$('#loader').addClass('loader').attr("hidden",false)
 
 
-	$.get("/check/run", async (data) => {
+	$.get("/check/run", async (data, status) => {
 		const jsonRes = JSON.parse(data)
 		const gifPromise = setGif(jsonRes.status)
 		const textPromise = changeText(jsonRes.status)

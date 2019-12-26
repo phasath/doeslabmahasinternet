@@ -9,16 +9,8 @@ from aiohttp.web import Response
 from aiohttp_jinja2 import template
 
 from extensions import labmaColl
-
-brazilTimezone = pytz.timezone('America/Sao_Paulo')
-
-mapUrls = { 'CT': 'https://www.ct.ufrj.br/',
-            'IF': 'https://www.if.ufrj.br/',
-            'IM': 'http://www.im.ufrj.br/index.php',
-            'LABMA': 'http://labma.ufrj.br/',
-            'LABMAIL': 'https://labma.ufrj.br/mail/',
-            'LABMAPRO': 'https://labmapro.im.ufrj.br/',
-            'TIC': 'https://www.tic.ufrj.br/'}
+from constants import mapUrls
+from utils import localizeTimeStampInBR
 
 @template('checker.html')
 async def home(request):
@@ -45,6 +37,7 @@ async def generate_requests() -> list:
 async def insertDbData(data) -> None:
     res = dict()
     res['timestamp'] = datetime.utcnow()
+
     for place, status in data.items():
         res[place] = {'uri': mapUrls[place], 'status': status}
     
@@ -52,7 +45,7 @@ async def insertDbData(data) -> None:
         res['status'] = 'fail'
     else:
         res['status'] = 'success'
-    
+
     labmaColl.insert_one(res)
 
 async def check(request) -> Response:
@@ -71,9 +64,7 @@ async def check(request) -> Response:
         res['status'] = 'success'
 
 
-    localizedTimestamp = brazilTimezone.localize(datetime.utcnow())
-
-    res['timestamp'] = localizedTimestamp.strftime('%d/%m/%Y - %H:%M:%S')
+    res['timestamp'] = localizeTimeStampInBR(datetime.utcnow())
     
     await process
     

@@ -6,4 +6,4 @@ history = web.Application()
 history.router.add_get('', routes.home)
 history.router.add_get('/', routes.home)
 
-history.router.add_get('/get_history', routes.get_history)
+history.router.add_get('/fetch', routes.get_history)

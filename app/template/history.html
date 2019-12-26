@@ -1,2 +1,127 @@
-<h1>Hello World</h1>
-<h2> I'm history </h2>
+<!DOCTYPE HTML>
+<!--
+	Strongly Typed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>O Labma tem internet?</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="icon" type="image/png" href="https://svgsilh.com/png-512/27106.png">
+	<link rel="stylesheet" href="{{ static('assets/css/main.css') }}" />
+</head>
+
+<body class="no-sidebar is-preload">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<section id="header">
+			<div class="container">
+
+				<!-- Logo -->
+				<h1 id="logo"><a href="/">O Labma tem Internet?</a></h1>
+				<p>Ah... essas terras do fundão... Imprevisíveis!</p>
+
+				<!-- Nav -->
+				<nav id="nav">
+					<ul>
+						<li><a class="icon solid fa-home" href="/"><span>Início</span></a></li>
+						<li><a class="icon fa-chart-bar" href="/history"><span>Histórico</span></a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</section>
+
+		<!-- Main -->
+		<section id="main">
+			<div class="container">
+				<div id="content">
+
+					<!-- Post -->
+					<article class="box post">
+						<div id='loader' class='container' hidden></div>
+						<div id='result' class="container" hidden>
+							<div class="row">
+								<div class="col">
+									<header class='col-centered'>
+										<h2>
+											<div id='text-status'> Histórico</div>
+										</h2>
+									</header>
+
+									<div class="toggle">
+										<p class="status"><span>Quantidade</span> de resultados</p>
+										<input type="radio" name="limitOption" value="10" checked="checked" id='optionLimit10' onclick="loadData(10)"/>
+										<label for="optionLimit10">10</label>
+										<input type="radio" name="limitOption" value="50" id='optionLimit50'  onclick="loadData(50)"/>
+										<label for="optionLimit50">50</label>
+										<input type="radio" name="limitOption" value="100" id='optionLimit100'  onclick="loadData(100)"/>
+										<label for="optionLimit100">100</label>
+									</div>
+
+									<div id='tableHeader' class="tbl-header">
+										<table cellpadding="0" cellspacing="0" border="0">
+											<thead>
+											</thead>
+										</table>
+									</div>
+									<div id='tableContent' class="tbl-content">
+										<table cellpadding="0" cellspacing="0" border="0">
+											<tbody>
+											</tbody>
+										</table>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</article>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<section id="footer">
+			<div class="container">
+				<header>
+					<h2>Algum problema? <strong>Envie um email para o suporte:</strong></h2>
+				</header>
+				<div class="row">
+					<!-- <div class="col">lala</div> -->
+					<div class="col-centered">
+						<a target="_blank"
+							href="mailto:suporte@labma.ufrj.br?subject=Internet%20n%C3%A3o%20est%C3%A1%20funcionando"
+							class="form-button-submit button icon solid fa-envelope">Enviar Email</a>
+					</div>
+					<!-- <div class="col">lala</div> -->
+				</div>
+			</div>
+			<div id="copyright" class="container">
+				<ul class="links">
+					<li>&copy; All rights reserved. 2019.</li>
+					<li>Created by <a href="http://raphaelsathler.tk">Raphael Sathler</a></li>
+				</ul>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="{{ static('assets/js/jquery.min.js') }} "></script>
+	<script src="{{ static('assets/js/jquery.dropotron.min.js') }} "></script>
+	<script src="{{ static('assets/js/browser.min.js') }} "></script>
+	<script src="{{ static('assets/js/breakpoints.min.js') }} "></script>
+	<script src="{{ static('assets/js/util.js') }} "></script>
+	<script src="{{ static('assets/js/main.js') }} "></script>
+	<script src="{{ static('assets/js/history.js') }} "></script>
+
+
+</body>
+
+</html>
