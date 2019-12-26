@@ -21,4 +21,4 @@ python_version = "3.8"
 [scripts]
 start="bash scripts/run_start.sh"
 local="bash scripts/run_local.sh"
-setup_mongo = "bash mongo-setup/mongodb.sh mongo"
+setup_mongo = "bash mongo-setup/mongodb.sh"

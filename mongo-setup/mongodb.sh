@@ -1,3 +1,3 @@
 #!/bin/sh
 
-mongo < mongo-setup/$1.js
+mongo < mongo-setup/mongo.js
