@@ -6,5 +6,5 @@ env = environ.get('ENV', 'production')
 
 CFG = config_to_class(env)
 MONGO = MongoClient(CFG.MONGODB_URI)
-labmaDB = MONGO['labma']
+labmaDB = MONGO.get_default_database()
 labmaColl = labmaDB['labma']
