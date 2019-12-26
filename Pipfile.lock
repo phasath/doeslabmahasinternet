@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2904fc71e93be62fff5d6ee589eaf8aa12b0886e09ef6e1e9a120147d0542e88"
+            "sha256": "09c169493223b22a536a85f49beb3b2f4d12dbb6e55c194407ff13925b82ac62"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -189,6 +189,13 @@
                 "sha256:ea8b7f6188e6fa117537c3df7da9fc686d485087abf6ac197f9c46432f7e4a3c"
             ],
             "version": "==2.8"
+        },
+        "idna-ssl": {
+            "hashes": [
+                "sha256:a933e3bb13da54383f9e8f35dc4f9cb9eb9b3b78c6b36f311254d6d0d92c6c7c"
+            ],
+            "index": "pypi",
+            "version": "==1.1.0"
         },
         "jinja2": {
             "hashes": [
