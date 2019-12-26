@@ -17,7 +17,7 @@ class Config(object):
     STATIC_FOLDER = config("STATIC_FOLDER", f'{root_location}/static')
 
     MONGODB_URI = config('MONGODB_URI',
-                         default=('mongodb://heroku_5lklhmz5:bs29c5m1jjahg21jhmtmk2o474@ds143451.mlab.com:43451/heroku_5lklhmz5'))
+                         default=('mongodb://heroku_5lklhmz5:bs29c5m1jjahg21jhmtmk2o474@ds143451.mlab.com:43451/heroku_5lklhmz5?retryWrites=false'))
 
     SECRET_KEY = config('SECRET_KEY',
                         default='`)$GGx*&:0sZgxBv5kE{-8URC:ANzd2DRCW}`-<1DYk=7e<U^}nccg!`zj@0wo4')
@@ -33,7 +33,7 @@ class DevConfig(Config):
     DEBUG = True
 
     MONGODB_URI = config('MONGODB_URI',
-                  default='mongodb://labmainternet:labMA1nt4rnet!!@127.0.0.1:27017/labma')
+                  default='mongodb://labmainternet:labMA1nt4rnet!!@127.0.0.1:27017/labma?retryWrites=false')
 
 def config_to_class(environ_class):
     class_dict = {
