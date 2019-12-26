@@ -5,12 +5,15 @@ verify_ssl = true
 
 [dev-packages]
 aiohttp-devtools = "*"
+pylint = "*"
 
 [packages]
 aiohttp = {extras = ["speedups"],version = "*"}
 gunicorn = "*"
 python-decouple = "*"
 aiohttp-jinja2 = "*"
+pymongo = "*"
+pytz = "*"
 
 [requires]
 python_version = "3.8"
@@ -18,3 +21,4 @@ python_version = "3.8"
 [scripts]
 start="bash scripts/run_start.sh"
 local="bash scripts/run_local.sh"
+setup_mongo = "bash mongo-setup/mongodb.sh mongo"

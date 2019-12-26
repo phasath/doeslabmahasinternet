@@ -55,6 +55,17 @@ async function setGif(gifType='success'){
 	newGif();
 }
 
+async function insertTableData(res){
+	console.log('res')
+	console.log(res)
+	let tableText = ''
+	for (let [key, value] of Object.entries(res.responses)){
+		tableText = `<tr><td>${key}</td><td>${value}</td></tr>`
+		$('#tableContent').find('tbody').append(tableText);
+	}
+
+}
+
 async function changeText(status){
 	const div = document.getElementById('text-status')
 	if (status === 'success'){
@@ -65,10 +76,20 @@ async function changeText(status){
 }
 
 $(document).ready(async function() {
-	$.get("/check/run", (data, status) => {
-		const jsonRes = JSON.parse(data)
-		setGif(jsonRes.status);
-		changeText(jsonRes.status);
+	$('#loader').addClass('loader').attr("hidden",false)
 
-	});
+
+	$.get("/check/run", async (data, status) => {
+		const jsonRes = JSON.parse(data)
+		const gifPromise = setGif(jsonRes.status)
+		const textPromise = changeText(jsonRes.status)
+		const tablePromise = insertTableData(jsonRes)
+
+		await Promise.all([gifPromise, textPromise, tablePromise])
+	}).then(()=>{
+		$('#result').attr('hidden', false)
+		$('#loader').removeClass('loader').attr('hidden', true)
+	}
+
+	);
 });
