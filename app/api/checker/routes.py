@@ -18,7 +18,7 @@ async def home(request):
 
 async def fetch(session, place) -> tuple:    
     url = mapUrls[place]
-    async with session.get(url) as response:
+    async with session.get(url, timeout=.1) as response:
         if response.status != 200:
             response.raise_for_status()
         return (place, response.status)
