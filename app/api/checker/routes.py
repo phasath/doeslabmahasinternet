@@ -1,6 +1,6 @@
 import pytz
 
-from asyncio import (gather, create_task)
+from asyncio import (gather, create_task, exceptions as asyncioExpcetions)
 from json import dumps as json_dumps
 from datetime import datetime
 
@@ -18,10 +18,15 @@ async def home(request):
 
 async def fetch(session, place) -> tuple:    
     url = mapUrls[place]
-    async with session.get(url, timeout=.1) as response:
-        if response.status != 200:
-            response.raise_for_status()
-        return (place, response.status)
+    try:
+        async with session.get(url, timeout=5) as response:
+            if response.status != 200:
+                return (place, 400)
+            return (place, response.status)
+    except asyncioExpcetions.TimeoutError:
+        return (place,400)
+    except Exception:
+        return (place,400)
 
 async def fetch_all(session, places) -> list:
     results = await gather(*[create_task(fetch(session, place))
