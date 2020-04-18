@@ -17,7 +17,7 @@ pytz = "*"
 idna-ssl = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.8.2"
 
 [scripts]
 start="bash scripts/run_start.sh"
